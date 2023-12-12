@@ -2,12 +2,14 @@
 #include <Stepper.h>
 
 // Pin definitions
-const int ledPin = 6; // LED strip
+const int ledPin = 6;    // LED strip
+const int ledPin2 = 7;   // Additional LED 1
+const int ledPin3 = 8;   // Additional LED 2
 const int buzzerPin = 3; // Buzzer
-const int motorPin = 5; // Vibration motor (to be replaced by stepper motor)
+const int motorPin = 5;  // Vibration motor (to be replaced by stepper motor)
 const int lightSensorPin = A0; // Ambient light sensor (LDR)
-const int trigPin = 9; // Ultrasonic sensor trigger
-const int echoPin = 10; // Ultrasonic sensor echo
+const int trigPin = 9;   // Ultrasonic sensor trigger
+const int echoPin = 10;  // Ultrasonic sensor echo
 
 // Stepper motor control pins
 const int stepperPin1 = 11; // Stepper motor pin 1
@@ -38,8 +40,10 @@ void setup() {
 
   // Initialize pins
   pinMode(ledPin, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
   pinMode(buzzerPin, OUTPUT);
-  pinMode(motorPin, OUTPUT); // Will be replaced by stepper motor
+  pinMode(motorPin, OUTPUT);
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 
@@ -107,9 +111,13 @@ void loop() {
 void adjustLEDs(int lightLevel) {
   // Adjust brightness of LEDs based on ambient light level
   if (lightLevel < 300) { // Low light condition
-    analogWrite(ledPin, 255); // Maximum brightness
+    analogWrite(ledPin, 255); // Maximum brightness for LED strip
+    digitalWrite(ledPin2, HIGH); // Turn on additional LED 1
+    digitalWrite(ledPin3, HIGH); // Turn on additional LED 2
   } else {
-    analogWrite(ledPin, 128); // Dimmed for brighter conditions
+    analogWrite(ledPin, 128); // Dimmed for brighter conditions for LED strip
+    digitalWrite(ledPin2, LOW); // Turn off additional LED 1
+    digitalWrite(ledPin3, LOW); // Turn off additional LED 2
   }
 }
 
