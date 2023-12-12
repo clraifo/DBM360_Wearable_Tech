@@ -1,0 +1,54 @@
+Components and Wiring Instructions:
+1. Arduino Uno Setup:
+- Place the Arduino Uno centrally in your workspace.
+
+2. Connecting the MPU6050 Accelerometer:
+- VCC to 5V on Arduino.
+- GND to GND on Arduino.
+- SCL to A5 on Arduino.
+- SDA to A4 on Arduino.
+
+3. Connecting the Ambient Light Sensor (LDR):
+- One leg of the LDR to A0 on Arduino.
+- Other leg of the LDR to one end of a 10kΩ resistor.
+- The other end of the 10kΩ resistor to GND on Arduino.
+- Also connect the same leg of the LDR (where it connects to the resistor) to 5V on Arduino.
+
+4. Connecting the Ultrasonic Distance Sensor (HC-SR04):
+- VCC to 5V on Arduino.
+- GND to GND on Arduino.
+- TRIG to D9 on Arduino.
+- ECHO to D10 on Arduino through a 1kΩ resistor.
+
+5. Connecting the LEDs:
+- Connect the LED strip's positive (usually red wire) to D6 on Arduino.
+- Connect the LED strip's negative to GND on Arduino.
+- Include a suitable resistor if your LED strip requires one.
+
+6. Connecting the Buzzer:
+- Positive to D3 on Arduino.
+- Negative to GND on Arduino.
+
+7. Connecting the Stepper Motor (Using ULN2003 Driver as an Example):
+- Connect IN1 on the ULN2003 driver to D11 on Arduino.
+- Connect IN2 on the ULN2003 driver to D12 on Arduino.
+- Connect IN3 and IN4 on the ULN2003 driver to additional digital pins if you plan to use them.
+- Connect the VCC of the ULN2003 driver to an external power source (suitable for your stepper motor).
+- Connect the GND of the ULN2003 driver to the external power source's GND and also to the GND on Arduino.
+- Connect the stepper motor to the ULN2003 driver according to the motor's wiring diagram.
+
+8. Powering the Circuit:
+- Ensure the Arduino Uno is powered via its USB connection or an external power supply.
+- The stepper motor should be powered by an external power source appropriate for its voltage and current requirements.
+
+9. Additional Connections:
+- Make sure all ground (GND) connections are connected together, especially if you are using a breadboard.
+- Add any additional resistors that may be required for your specific components.
+
+Notes:
+- Stepper Motor Driver: The specific wiring for the stepper motor will depend on the type of driver you are using. The 
+- ULN2003 is a common driver for small stepper motors and is used as an example here.
+- External Power Source for Stepper Motor: Stepper motors can draw a significant amount of current, which the Arduino 
+cannot supply. Hence, an external power source is needed.
+Safety and Testing: Before powering up the entire circuit, double-check all connections. Be cautious when dealing with different power sources to avoid short circuits.
+This setup should provide a comprehensive wiring guide for your project, incorporating the sensors, LEDs, buzzer, and stepper motor with the Arduino Uno. Once you have everything wired up, you can upload the provided code to the Arduino and begin testing the functionality of your smart safety jacket.
