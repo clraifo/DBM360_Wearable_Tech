@@ -9,7 +9,7 @@ It involves the following:
 Three sensors
   - MPU6050 Accelerometer
   - HC-SR04 Ultrasonic sensor
-  - a generic photoresistor for light dtection
+  - a generic photoresistor for light detection
 
 Three outputs:
   - LEDs
